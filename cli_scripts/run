@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BLENDER=/Applications/Blender/blender.app/Contents/MacOS/blender
+EXPORT_PATH=""
+
+PROD_BLEND_FILES=/opt/petgame_assets/blender_source/production/*.blend
+
+for f in $PROD_BLEND_FILES; do
+  echo "File -> $f"
+  ${BLENDER} $f --background --python export_uv_layout.py -- ${EXPORT_PATH}
+done
